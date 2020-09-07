@@ -1,10 +1,10 @@
-package com.qingyuan.dto;
+package com.qingyuan.example;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DtoApplicationTests {
+class ExampleApplicationTests {
 
 	@Test
 	void contextLoads() {

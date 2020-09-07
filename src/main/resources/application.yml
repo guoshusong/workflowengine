@@ -12,8 +12,8 @@ spring:
   profiles: dev
   datasource:
     username: root
-    password: Gzsnb@666
-    url: jdbc:mysql://47.103.218.66:3306/uapply?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    password: shumaosha2
+    url: jdbc:mysql://localhost:3306/workflow_engine?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   #设置开启热部署
@@ -30,9 +30,9 @@ spring:
   profiles: release
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/uapply?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/workflow_engine?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
-    password: Gzsnb@666
+    password: shumaosha2
   #设置开启热部署
   devtools:
     restart:

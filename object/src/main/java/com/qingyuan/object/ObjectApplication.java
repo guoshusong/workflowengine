@@ -1,13 +1,13 @@
-package com.qingyuan.dto;
+package com.qingyuan.object;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DtoApplication {
+public class ObjectApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DtoApplication.class, args);
+		SpringApplication.run(ObjectApplication.class, args);
 	}
 
 }
