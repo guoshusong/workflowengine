@@ -1,6 +1,7 @@
 package com.qingyuan.object.PO;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * 节点审批类
@@ -37,5 +38,6 @@ public class NodeApproveDetail {
     /**
      * 节点审批时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private String approveTime;
 }

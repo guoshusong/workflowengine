@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qingyuan.util.mapper.UUIDMapper">
+
+    <resultMap id="UUIDDTO" type="com.qingyuan.util.uuid.UUIDDTO">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="biz_type" property="bizType" jdbcType="INTEGER"/>
+        <result column="max_id" property="maxId" jdbcType="INTEGER"/>
+        <result column="step_length" property="stepLength" jdbcType="INTEGER"/>
+        <result column="version" property="version" jdbcType="INTEGER"/>
+    </resultMap>
+    
+
+    <insert id="intiUUID" useGeneratedKeys="true" keyColumn="id">
+        BEGIN
+        INSERT INTO uuid(biz_type,max_id,step_length)
+        VALUES (#{bizType,jdbcTtpe=INTEGER},#{stepLength,jdbcTtpe=VARCHAR},#{stepLength,jdbcTtpe=INTEGER})
+        END
+    </insert>
+    <update id="plusMaxID">
+        UPDATE uuid SET max_id = max_id + step_length
+        WHERE biz_type = #{bizType,jdbcTtpe=INTEGER}
+    </update>
+
+    <select id="selectUUID" resultType="com.qingyuan.util.uuid.UUIDDTO">
+        SELECT id,biz_type,max_id,step_length,version
+        FROM uuid
+        where biz_type = #{bizType,jdbcTtpe=INTEGER}
+    </select>
+
+
+
+</mapper>

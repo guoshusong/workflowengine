@@ -1,6 +1,7 @@
 package com.qingyuan.object.PO;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * @program: workflowengine
@@ -30,6 +31,7 @@ public class WorkFlowModelApproveDetail {
     /**
      * 审批时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private String approveTime;
 
     /**

@@ -1,6 +1,8 @@
-#mybatis-plus:
-#  mapper-locations: classpath:mapper/*.xml
-#  type-aliases-package: com/volunteer/uapply.pojo
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com/volunteer/uapply.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 
 spring:

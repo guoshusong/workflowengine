@@ -27,6 +27,7 @@ public class WorkFlowModel implements Serializable{
     protected String modelName;
     /**
      * 流程模型节点集合
+     * 此内容不应存在数据库中
      */
     protected List<Node> nodeList;
 
@@ -39,11 +40,6 @@ public class WorkFlowModel implements Serializable{
      * 所属部门id
      */
     protected Integer departmentId;
-
-    /**
-     * 所属部门名称
-     */
-    protected String departmentName;
 
     /**
      * 流程模型申请人

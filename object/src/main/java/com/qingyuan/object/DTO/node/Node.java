@@ -1,6 +1,7 @@
 package com.qingyuan.object.DTO.node;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * 节点类父类
@@ -13,12 +14,12 @@ public class Node {
     /**
      * 节点id
      */
-    protected Integer nodeId;
+    private Integer nodeId;
 
     /**
      * 节点名称(描述节点作用)
      */
-    protected String nodeName;
+    private String nodeName;
 
     /**
      * 节点类型
@@ -26,48 +27,73 @@ public class Node {
      * 1 task
      * 2 end
      */
-    protected Integer nodeTypeId;
+    private Integer nodeTypeId;
 
     /**
      * 节点申请人
      */
-    protected Integer applyUserId;
+    private Integer applyUserId;
 
     /**
      * 节点申请时间
      */
-    protected String applyTime;
+    private String applyTime;
 
     /**
      * 节点状态
      */
-    protected String nodeStatus;
+    private String nodeStatus;
 
     /**
      * 节点开始时间
      */
-    protected String startTime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private String startTime;
     /**
      * 节点结束时间
      */
-    protected String endTime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private String endTime;
+
 
     /**
      * 审批人权限id
+     * 审批人权限id与审批人usersId选填一个
      */
-    protected Integer approveAuthorityId;
+    private Integer approveAuthorityId;
 
     /**
      * 审批人usersId
+     * 字符串类型，使用时应该转换为int数组类型
      */
-    protected Integer[] approveUsersId;
+    private String approveUsersId;
 
     /**
      * 审批类型id
      * 0 any
      * 1 all
      */
-    protected Integer approveTypeId;
+    private Integer approveTypeId;
+
+    /**
+     * 下一节点id
+     */
+    private Integer nextNodeId;
+
+    /**
+     * 上一节点id
+     */
+    private Integer preNodeId;
+
+    /**
+     * 起始节点id
+     */
+    private Integer startNodeId;
+
+    /**
+     * 结束节点id
+     */
+    private Integer endNodeId;
 
     public Node(){
 
