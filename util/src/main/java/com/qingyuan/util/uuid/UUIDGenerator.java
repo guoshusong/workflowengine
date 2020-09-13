@@ -51,11 +51,19 @@ public class UUIDGenerator {
                 REENTRANT_LOCK.unlock();
             }
         }else{
-            //如果不村存在当前的业务类型，则应该从数据库中获取新值
+            //如果不存在当前的业务类型，则应该从数据库中获取新值
+             System.out.println(bizType);
              UUIDDTO uuiddto = uuidMapper.selectUUID(bizType);
-             uuidDetail = new UUIDDetail(bizType,uuiddto.getMaxId(),uuiddto.getMaxId()+uuiddto.getStepLength(),uuiddto.getStepLength());
-             uuid = uuidDetail.plusNowUUID();
-             UUID_HASH_MAP.put(bizType,uuidDetail);
+             //此项为空，说明数据库中不存在数据
+             if(uuiddto == null){
+                 uuidMapper.intiUUID(bizType,100);
+                 uuidDetail = new UUIDDetail(bizType,0,100,100);
+             }else{
+                 uuidDetail = new UUIDDetail(bizType,uuiddto.getMaxId(),uuiddto.getMaxId()+uuiddto.getStepLength(),uuiddto.getStepLength());
+             }
+            uuid = uuidDetail.plusNowUUID();
+            UUID_HASH_MAP.put(bizType,uuidDetail);
+
         }
         return uuid;
     }

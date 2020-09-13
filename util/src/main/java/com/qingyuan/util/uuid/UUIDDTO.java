@@ -30,6 +30,7 @@ public class UUIDDTO {
 
     /**
      * 步长
+     * 初始化过程中如果未指定stepLength则默认为100
      */
     private Integer stepLength;
 

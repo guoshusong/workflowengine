@@ -14,18 +14,24 @@
     <insert id="intiUUID" useGeneratedKeys="true" keyColumn="id">
         BEGIN
         INSERT INTO uuid(biz_type,max_id,step_length)
-        VALUES (#{bizType,jdbcTtpe=INTEGER},#{stepLength,jdbcTtpe=VARCHAR},#{stepLength,jdbcTtpe=INTEGER})
+        VALUES (#{bizType,jdbcType=INTEGER},#{stepLength,jdbcType=INTEGER},#{stepLength,jdbcType=INTEGER})
         END
     </insert>
+
     <update id="plusMaxID">
         UPDATE uuid SET max_id = max_id + step_length
-        WHERE biz_type = #{bizType,jdbcTtpe=INTEGER}
+        WHERE biz_type = #{bizType,jdbcType=INTEGER}
+    </update>
+
+    <update id="updateUUID">
+        UPDATE uuid SET max_id = #{maxId,jdbcType=INTEGER}, step_length = #{stepLength,jdbcType=INTEGER}
+        WHERE biz_type = #{bizType,jdbcType=INTEGER}
     </update>
 
     <select id="selectUUID" resultType="com.qingyuan.util.uuid.UUIDDTO">
         SELECT id,biz_type,max_id,step_length,version
         FROM uuid
-        where biz_type = #{bizType,jdbcTtpe=INTEGER}
+        where biz_type = #{bizType,jdbcType=INTEGER}
     </select>
 
 

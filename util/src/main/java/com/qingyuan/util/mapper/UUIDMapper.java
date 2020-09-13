@@ -25,9 +25,16 @@ public interface UUIDMapper {
     UUIDDTO selectUUID(Integer bizType);
 
     /**
-     * 此处是将maxID
+     * 此处是将maxID加一个步长
      * @param bizType
      * @return
      */
     int plusMaxID(Integer bizType);
+
+    /**
+     * 更新数据库
+     * @param uuiddto
+     * @return
+     */
+    int updateUUID(UUIDDTO uuiddto);
 }

@@ -1,3 +1,13 @@
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com/qingyuan/util
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+spring:
+  datasource:
+    username: root
+    password: shumaosha2
+    url: jdbc:mysql://localhost:3306/workflow_engine?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
