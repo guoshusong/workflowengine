@@ -1,7 +1,7 @@
 package com.qingyuan.mapper;
 
 
-import com.qingyuan.object.DTO.Node;
+import com.qingyuan.pojo.Node;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -19,5 +19,10 @@ public interface NodeMapper {
     Node getNodeByNodeId(Integer nodeId);
 
 
+    /**
+     * 插入节点
+     * @param node
+     * @return
+     */
     int InsertNode(Node node);
 }

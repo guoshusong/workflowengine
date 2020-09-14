@@ -1,6 +1,6 @@
-package com.qingyuan.object.VO;
+package com.qingyuan.pojo;
 
-import com.qingyuan.object.DTO.Node;
+import com.qingyuan.pojo.Node;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -83,6 +83,10 @@ public class WorkFlowModel implements Serializable{
     protected Integer approveAuthorityId;
 
 
+    /**
+     * 审批人id
+     */
+    protected String approveUsersId;
 
     /**
      * 在指定位置插入节点(注意位置起始从1开始)

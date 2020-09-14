@@ -1,4 +1,4 @@
-package com.qingyuan.util.Enum;
+package com.qingyuan.Enum;
 
 /**
  * 审批类型枚举类

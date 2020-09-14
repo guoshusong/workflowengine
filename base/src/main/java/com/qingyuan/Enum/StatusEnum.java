@@ -1,4 +1,4 @@
-package com.qingyuan.util.Enum;
+package com.qingyuan.Enum;
 
 /**
  *节点状态枚举类

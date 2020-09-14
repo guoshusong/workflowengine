@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qingyuan.mapper.WorkFlowModelMapper" >
+
+    <resultMap id="WorkFlowModel" type="com.qingyuan.pojo.WorkFlowModel">
+
+    </resultMap>
+
+    <insert id="insertModel" >
+        INSERT INTO workflow_model(model_id, model_name, model_status, department_id, applyUser_id, apply_time,
+                                   startNode_id, endNode_id, start_time, end_time, approveType_id, approveAuthority_id, approveUsers_id)
+        VALUES (#{modelId},#{modelName},#{modelStatus},#{departmentId},#{applyUserId},#{applyTime},#{startNodeId},#{endNodeId}
+        ,#{startTime},#{endTime},#{approveTypeId},#{approveAuthorityId}，#{approveUsersId})
+    </insert>
+</mapper>

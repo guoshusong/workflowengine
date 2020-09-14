@@ -1,4 +1,4 @@
-package com.qingyuan.object.VO;
+package com.qingyuan.pojo;
 
 import lombok.Data;
 

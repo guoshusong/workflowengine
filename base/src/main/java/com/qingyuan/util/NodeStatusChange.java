@@ -1,7 +1,7 @@
-package com.qingyuan.object.util;
+package com.qingyuan.util;
 
 import com.qingyuan.mapper.NodeMapper;
-import com.qingyuan.object.DTO.Node;
+import com.qingyuan.pojo.Node;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

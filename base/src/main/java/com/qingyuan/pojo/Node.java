@@ -1,4 +1,4 @@
-package com.qingyuan.object.DTO;
+package com.qingyuan.pojo;
 
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;

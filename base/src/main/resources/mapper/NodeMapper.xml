@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.qingyuan.mapper.NodeMapper">
-    <resultMap id="Node" type="com.qingyuan.object.DTO.Node">
+    <resultMap id="Node" type="com.qingyuan.pojo.Node">
         <id column="node_id" property="nodeId" jdbcType="INTEGER"/>
         <result column="node_name" property="nodeName" jdbcType="VARCHAR"/>
         <result column="nodeType_id" property="nodeTypeId" jdbcType="INTEGER"/>
@@ -22,7 +22,7 @@
         INSERT INTO
     </insert>
 
-    <select id="getNodeByNodeId" resultType="com.qingyuan.object.DTO.Node">
+    <select id="getNodeByNodeId" resultMap="Node">
         SELECT node_name,nodeType_id,applyUser_id,apply_time,node_status,approveType_id,
         approveUsers_id,start_time,end_time,approveAuthority_id,startNode_id,preNode_id,nextNode_id,endNode_id
         FROM node

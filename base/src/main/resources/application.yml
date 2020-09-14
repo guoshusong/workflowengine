@@ -2,3 +2,8 @@ mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com/qingyuan/object
 
+spring:
+  datasource:
+    username: root
+    password: shumaosha2
+    url: jdbc:mysql://localhost:3306/workflow_engine?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
