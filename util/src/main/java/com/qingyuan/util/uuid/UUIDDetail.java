@@ -2,6 +2,8 @@ package com.qingyuan.util.uuid;
 
 import com.qingyuan.util.mapper.UUIDMapper;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.concurrent.locks.ReentrantLock;
@@ -15,8 +17,7 @@ import java.util.concurrent.locks.ReentrantLock;
 @Data
 public class UUIDDetail {
 
-    @Resource
-    private UUIDMapper uuidMapper;
+
 
     /**
      * 业务类型
@@ -26,7 +27,7 @@ public class UUIDDetail {
     /**
      * 阈值
      */
-    private static double THRESHOLD = 0.75;
+    private Double THRE_SHOLD = 0.75;
 
     /**
      * 现在的值
@@ -43,7 +44,6 @@ public class UUIDDetail {
      */
     private Integer stepLength;
 
-    private static ReentrantLock reentrantLock = new ReentrantLock();
 
     public UUIDDetail(Integer bizType, Integer nowUUID, Integer maxUUID, Integer stepLength) {
         this.bizType = bizType;
@@ -52,27 +52,5 @@ public class UUIDDetail {
         this.stepLength = stepLength;
     }
 
-    /**
-     * 将现在的最大uuid加一
-     */
-    public Integer plusNowUUID() {
-        if (nowUUID >= maxUUID * THRESHOLD) {
-            reentrantLock.lock();
-            try {
-                if (nowUUID >= maxUUID * THRESHOLD) {
-                    //达到阈值，应当进行扩容操作
-                    //并发
-                    //此处扩容操作应当如何保证数据一致性
-                    //扩大最大值的容量
-                    uuidMapper.plusMaxID(this.bizType);
-                    //并申请最大的容量
-                    this.maxUUID = this.maxUUID+ stepLength;
-                }
-            }finally {
-                reentrantLock.unlock();
-            }
-        }
-        this.nowUUID++;
-        return this.nowUUID;
-    }
+
 }

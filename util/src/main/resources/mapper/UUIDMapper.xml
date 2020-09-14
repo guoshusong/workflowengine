@@ -12,10 +12,8 @@
     
 
     <insert id="intiUUID" useGeneratedKeys="true" keyColumn="id">
-        BEGIN
         INSERT INTO uuid(biz_type,max_id,step_length)
         VALUES (#{bizType,jdbcType=INTEGER},#{stepLength,jdbcType=INTEGER},#{stepLength,jdbcType=INTEGER})
-        END
     </insert>
 
     <update id="plusMaxID">
@@ -28,7 +26,7 @@
         WHERE biz_type = #{bizType,jdbcType=INTEGER}
     </update>
 
-    <select id="selectUUID" resultType="com.qingyuan.util.uuid.UUIDDTO">
+    <select id="selectUUID" resultType="com.qingyuan.util.uuid.UUIDDTO" resultMap="UUIDDTO">
         SELECT id,biz_type,max_id,step_length,version
         FROM uuid
         where biz_type = #{bizType,jdbcType=INTEGER}

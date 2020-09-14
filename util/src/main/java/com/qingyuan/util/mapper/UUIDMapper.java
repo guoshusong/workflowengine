@@ -7,7 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
  * 表UUID对应的相关操作
  * @author 24605
  */
-@Mapper
 public interface UUIDMapper {
     /**
      * 初始化某一业务类型的UUID

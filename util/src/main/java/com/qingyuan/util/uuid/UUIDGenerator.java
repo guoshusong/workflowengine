@@ -16,8 +16,12 @@ import java.util.concurrent.locks.ReentrantLock;
 @Component
 public class UUIDGenerator {
 
+
     @Resource
     private UUIDMapper uuidMapper;
+
+    @Resource
+    private UUIDDetailOperator uuidDetailOperator;
 
     /**
      * 静态变量，面向整个类
@@ -46,24 +50,24 @@ public class UUIDGenerator {
             REENTRANT_LOCK.lock();
             try {
                 //当前值加一并赋值
-                uuid =   uuidDetail.plusNowUUID();
+                uuid =   uuidDetailOperator.plusNowUUID(uuidDetail);
             }finally {
                 REENTRANT_LOCK.unlock();
             }
         }else{
             //如果不存在当前的业务类型，则应该从数据库中获取新值
-             System.out.println(bizType);
              UUIDDTO uuiddto = uuidMapper.selectUUID(bizType);
              //此项为空，说明数据库中不存在数据
              if(uuiddto == null){
                  uuidMapper.intiUUID(bizType,100);
                  uuidDetail = new UUIDDetail(bizType,0,100,100);
              }else{
+                 //数据库中存在数据，但是缓存中不存在
                  uuidDetail = new UUIDDetail(bizType,uuiddto.getMaxId(),uuiddto.getMaxId()+uuiddto.getStepLength(),uuiddto.getStepLength());
+                 uuidMapper.updateUUID(new UUIDDTO(bizType, uuiddto.getMaxId()+uuiddto.getStepLength(), uuiddto.getStepLength(),0));
              }
-            uuid = uuidDetail.plusNowUUID();
+            uuid =   uuidDetailOperator.plusNowUUID(uuidDetail);
             UUID_HASH_MAP.put(bizType,uuidDetail);
-
         }
         return uuid;
     }

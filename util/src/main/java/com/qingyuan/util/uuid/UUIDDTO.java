@@ -39,4 +39,11 @@ public class UUIDDTO {
      * 乐观锁
      */
     private Integer version;
+
+    public UUIDDTO(Integer bizType, Integer maxId, Integer stepLength, Integer version) {
+        this.bizType = bizType;
+        this.maxId = maxId;
+        this.stepLength = stepLength;
+        this.version = version;
+    }
 }
