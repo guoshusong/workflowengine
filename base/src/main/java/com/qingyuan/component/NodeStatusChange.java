@@ -1,4 +1,4 @@
-package com.qingyuan.util;
+package com.qingyuan.component;
 
 import com.qingyuan.mapper.NodeMapper;
 import com.qingyuan.pojo.Node;
@@ -25,8 +25,8 @@ public class NodeStatusChange {
      * @param nextStatus 下一状态
      * @return
      */
-    public Node statusChange(Integer nodeId, String nowStatus, String nextStatus){
-        Node node = nodeMapper.getNodeByNodeId(nodeId);
+    public Node statusRollBack(Integer nodeId, String nowStatus, String nextStatus){
+        Node node = nodeMapper.selectByPrimaryKey(nodeId);
         return node;
     }
 }

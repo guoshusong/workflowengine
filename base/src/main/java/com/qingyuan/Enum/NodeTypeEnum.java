@@ -8,8 +8,8 @@ package com.qingyuan.Enum;
 public enum  NodeTypeEnum {
 
     START_NODE(0,"开始节点"),
-    TASK_NODE(1,"任务节点"),
-    END_NODE(2,"结束节点");
+    TASK_NODE(1,"结束节点"),
+    END_NODE(2,"开始加结束节点");
 
     /**
      * 节点类型Id

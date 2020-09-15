@@ -16,6 +16,8 @@ public class Node {
      */
     private Integer nodeId;
 
+
+
     /**
      * 节点名称(描述节点作用)
      */
@@ -28,6 +30,12 @@ public class Node {
      * 2 end
      */
     private Integer nodeTypeId;
+
+    /**
+     * 所属模型id
+     */
+    private Integer modelId;
+
 
     /**
      * 节点申请人
@@ -99,4 +107,3 @@ public class Node {
 
     }
 }
-

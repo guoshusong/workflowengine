@@ -4,7 +4,7 @@ package com.qingyuan.Enum;
  * 业务类型枚举类
  * @author 24605
  */
-public enum bizTypeEnum {
+public enum BizTypeEnum {
     //节点
     WORK_FLOW_NODE(0,"节点"),
     WORK_FLOW_MODEL(1,"模型"),
@@ -20,7 +20,7 @@ public enum bizTypeEnum {
      */
     private String bizTypeName;
 
-    bizTypeEnum(Integer bizType, String bizTypeName) {
+    BizTypeEnum(Integer bizType, String bizTypeName) {
         this.bizType = bizType;
         this.bizTypeName = bizTypeName;
     }

@@ -3,8 +3,25 @@
 <mapper namespace="com.qingyuan.mapper.WorkFlowModelMapper" >
 
     <resultMap id="WorkFlowModel" type="com.qingyuan.pojo.WorkFlowModel">
-
+        <id column="model_id" property="modelId" jdbcType="INTEGER"/>
+        <result column="model_name" property="modelName"  jdbcType="VARCHAR"/>
+        <result column="model_status" property="modelStatus"  jdbcType="VARCHAR"/>
+        <result column="department_id" property="departmentId"  jdbcType="INTEGER"/>
+        <result column="applyUser_id" property="applyUserId"  jdbcType="INTEGER"/>
+        <result column="apply_time" property="applyTime"  jdbcType="VARCHAR"/>
+        <result column="startNode_id" property="startNodeId"  jdbcType="INTEGER"/>
+        <result column="endNode_id" property="endNodeId"  jdbcType="INTEGER"/>
+        <result column="start_time" property="startTime"  jdbcType="VARCHAR"/>
+        <result column="end_time" property="endTime"  jdbcType="VARCHAR"/>
+        <result column="approveType_id" property="approveTypeId"  jdbcType="INTEGER"/>
+        <result column="approveAuthority_id" property="approveAuthorityId"  jdbcType="INTEGER"/>
+        <result column="approveUsers_id" property="approveUsersId"  jdbcType="VARCHAR"/>
     </resultMap>
+
+    <sql id="parameter" >
+        model_id, model_name, model_status, department_id, applyUser_id, apply_time,
+        startNode_id, endNode_id, start_time, end_time, approveType_id, approveAuthority_id, approveUsers_id
+    </sql>
 
     <insert id="insertModel" >
         INSERT INTO workflow_model(model_id, model_name, model_status, department_id, applyUser_id, apply_time,
@@ -12,4 +29,27 @@
         VALUES (#{modelId},#{modelName},#{modelStatus},#{departmentId},#{applyUserId},#{applyTime},#{startNodeId},#{endNodeId}
         ,#{startTime},#{endTime},#{approveTypeId},#{approveAuthorityId}，#{approveUsersId})
     </insert>
+
+    <update id="changeModelStatus">
+        UPDATE workflow_model SET model_status = #{status,jdbcType=VARCHAR}
+        WHERE model_id IN
+        <foreach collection="workFlowModelIds" item="item" index="index"
+                 separator="," open="[" close="]">
+            #{item}
+        </foreach>
+    </update>
+
+    <select id="selectAllModel" resultType="com.qingyuan.pojo.WorkFlowModel">
+        SELECT
+        <include refid="parameter"/>
+        FROM workflow_model
+    </select>
+
+    <select id="selectAllUnStatusModel" resultType="com.qingyuan.pojo.WorkFlowModel">
+        SELECT
+        <include refid="parameter"/>
+        FROM workflow_model
+        WHERE model_status != #{status,jdbcType=VARCHAR}
+    </select>
+
 </mapper>

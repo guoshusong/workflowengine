@@ -7,10 +7,11 @@ package com.qingyuan.Enum;
 public enum StatusEnum {
 
     NODE_CREATED(0,"创建"),
-    NODE_FINISHED(1,"通过"),
-    NODE_EXPIRED(2,"过期"),
-    NODE_CANCEL(3,"取消"),
-    NODE_REFUSE(4,"拒绝");
+    NODE_CANCEL(1,"取消"),
+    NODE_FINISHED(2,"通过"),
+    NODE_REFUSE(3,"拒绝"),
+    NODE_EXPIRED(4,"过期")
+    ;
 
 
     /**

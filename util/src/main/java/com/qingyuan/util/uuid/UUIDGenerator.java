@@ -69,6 +69,7 @@ public class UUIDGenerator {
             uuid =   uuidDetailOperator.plusNowUUID(uuidDetail);
             UUID_HASH_MAP.put(bizType,uuidDetail);
         }
+        System.out.println(uuidDetail.toString());
         return uuid;
     }
 

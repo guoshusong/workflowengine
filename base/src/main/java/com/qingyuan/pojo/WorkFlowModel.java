@@ -2,6 +2,7 @@ package com.qingyuan.pojo;
 
 import com.qingyuan.pojo.Node;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.List;
@@ -48,6 +49,7 @@ public class WorkFlowModel implements Serializable{
     /**
      * 流程模型申请时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     protected String applyTime;
 
     /**
@@ -63,11 +65,13 @@ public class WorkFlowModel implements Serializable{
     /**
      * 起始时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     protected String startTime;
 
     /**
      * 结束时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     protected String endTime;
 
     /**
@@ -82,9 +86,49 @@ public class WorkFlowModel implements Serializable{
      */
     protected Integer approveAuthorityId;
 
+    public WorkFlowModel() {
+    }
+
+
+
+    public WorkFlowModel(Integer modelId, String modelName, String modelStatus, Integer departmentId, Integer applyUserId,
+                         String applyTime, String startTime, String endTime, Integer approveTypeId, Integer approveAuthorityId,
+                         String approveUsersId) {
+        this.modelId = modelId;
+        this.modelName = modelName;
+        this.modelStatus = modelStatus;
+        this.departmentId = departmentId;
+        this.applyUserId = applyUserId;
+        this.applyTime = applyTime;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.approveTypeId = approveTypeId;
+        this.approveAuthorityId = approveAuthorityId;
+        this.approveUsersId = approveUsersId;
+    }
+
+    public WorkFlowModel(Integer modelId, String modelName, List<Node> nodeList, String modelStatus, Integer departmentId,
+                         Integer applyUserId, String applyTime, Integer startNodeId, Integer endNodeId, String startTime,
+                         String endTime, Integer approveTypeId, Integer approveAuthorityId, String approveUsersId) {
+        this.modelId = modelId;
+        this.modelName = modelName;
+        this.nodeList = nodeList;
+        this.modelStatus = modelStatus;
+        this.departmentId = departmentId;
+        this.applyUserId = applyUserId;
+        this.applyTime = applyTime;
+        this.startNodeId = startNodeId;
+        this.endNodeId = endNodeId;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.approveTypeId = approveTypeId;
+        this.approveAuthorityId = approveAuthorityId;
+        this.approveUsersId = approveUsersId;
+    }
 
     /**
      * 审批人id
+     * 传递参数时请用[,,]这种方式传递
      */
     protected String approveUsersId;
 
